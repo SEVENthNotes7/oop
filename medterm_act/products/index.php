@@ -1,17 +1,17 @@
 <?php
-  $host = "localhost";
-  $username = "root";
-  $password = "";
-  $db = "productdb";
+$host = "localhost";
+$username = "root";
+$password = "";
+$db = "productdb";
 
-  $conn = new mysqli($host, $username, $password, $db);
+$conn = new mysqli($host, $username, $password, $db);
 
-  if ($conn->connect_error) {
-    dei("Connection failes" . $conn->connect_error);
-  }
+if ($conn->connect_error) {
+  dei("Connection failes" . $conn->connect_error);
+}
 
-  $sql = "select * from tbl_product";
-  $rs = $conn->query($sql);
+$sql = "select * from tbl_products";
+$rs = $conn->query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,19 +53,19 @@
         </thead>
         <tbody>
           <?php
-            if ($rs->num_rows > 0) {
+          if ($rs->num_rows > 0) {
             while ($row = $rs->fetch_assoc()) {
-                echo "
+              echo "
                 <tr>
-                    <td>" . $row["id"] . "</td>
-                    <td>" . $row["fname"] . "</td>
-                    <td>" . $row["lname"] . "</td>
-                    <td>" . $row["pnum"] . "</td>
-                    <td><a href='delete.php?id=".$row["id"]."'>Delete</a></td>
+                    <td><img src=" . $row["imageloc"] . " alt='Product Image'></img></td>
+                    <td>" . $row["product_name"] . "</td>
+                    <td>" . $row["price"] . "</td>
+                    <td>" . $row["quantity"] . "</td>
+                    <td><a href='delete.php?id=" . $row["id"] . "'>Delete</a></td>
                 </tr>";
-              }
             }
-            $conn->close();
+          }
+          $conn->close();
           ?>
         </tbody>
       </table>

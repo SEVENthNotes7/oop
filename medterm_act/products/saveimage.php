@@ -23,14 +23,14 @@ if (!empty($_POST["submit"])) {
 
       $imageName = "img/" . htmlspecialchars(basename($_FILES["product_image"]["name"]));
 
-      $sql = $conn->prepare("INSERT INTO tbl_product (product_name, price, quantity, imageloc) VALUES (?, ?, ?, ?)");
+      $sql = $conn->prepare("INSERT INTO tbl_products (product_name, price, quantity, imageloc) VALUES (?, ?, ?, ?)");
       
       $sql->bind_param("sdis", $product_name, $price, $quant, $imageName);
       $sql->execute();
 
       // Check if the insertion was successful
       if ($sql->affected_rows > 0) {
-          echo "Product details inserted into database successfully.<br>";
+          echo "Product details inserted into database successfully.<a href='index.php'>Go back</a><br>";
       } else {
           echo "Error inserting product details into database.<br>";
       }
