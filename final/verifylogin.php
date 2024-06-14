@@ -13,14 +13,12 @@ if (isset($_POST["submit"])) {
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
-    echo "test";
     while ($row = $result->fetch_assoc()) {
       if ($username === $row["username"] && $password === $row["password"]) {
-        echo "Login Successfully";
         $_SESSION["admin"] = $username;
         header("location:dashboard.php");
       } else {
-        echo "Login Failed.";
+        echo "Login Failed.<a href='login.php'>Try again.</a>";
       }
     }
   }

@@ -3,7 +3,7 @@ include "conn.php";
 
 $username = $_POST["username"];
 $password = md5($_POST['password']);
-$user_type = "Admin";
+$user_type = "Client";
 
 $sql = "INSERT INTO users (username, password, user_type) VALUES ('$username', '$password' , '$user_type')";
 
