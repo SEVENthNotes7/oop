@@ -73,7 +73,10 @@ $rs = $conn->query($sql);
                 <td>" . $row["fname"] . "</td>
                 <td>" . $row["lname"] . "</td>
                 <td>" . $row["pnum"] . "</td>
-                <td><a href='delete.php?id=".$row["id"]."'>Delete</a></td>
+                <td>
+                    <a href='delete.php?id=" . $row["id"] . "'>Delete</a> |
+                    <a href='update.php?id=" . $row["id"] . "'>Edit</a>
+                </td>
             </tr>
             </tbody>";
             }

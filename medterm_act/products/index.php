@@ -22,7 +22,12 @@ $rs = $conn->query($sql);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-
+<style>
+  img{
+    height: 250px;
+    width: 300px;
+  }
+</style>
 <body>
   <div class="container">
     <div class="form-container">
